@@ -167,6 +167,7 @@ export default {
           icon: "announcement",
           color: "primary"
         });
+        this.$router.push('/login');
         this.resetForm();
       } else if (err.code == "user_exists") {
         this.$q.notify({
