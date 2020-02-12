@@ -3,9 +3,7 @@
     <q-card class="gastos" style="height:auto;width:100vw">
       <q-card-section>
         <div class="fit row">
-          <div class="col-6 col-xs-6 text-h4">
-            Resumo da conta
-          </div>
+          <div class="col-6 col-xs-6 text-h4">Resumo da conta</div>
           <div class="col-md-6" align="right">
             <q-btn color="secondary" style="height:5vh;">Extrato</q-btn>
           </div>
@@ -20,9 +18,7 @@
               <p
                 class="q-ml-xs text-bold"
                 :class="percentChange() > 0 ? 'text-negative' : 'text-positive'"
-              >
-                ({{ percentChange().toFixed(2) }}%)
-              </p>
+              >({{ percentChange().toFixed(2) }}%)</p>
             </div>
           </div>
         </div>
@@ -70,7 +66,7 @@
               </q-badge>
             </q-td>
           </q-tr>
-        </template> -->
+        </template>-->
         <template slot="body-cell-bank" slot-scope="col">
           <q-td>
             <q-avatar>
@@ -81,38 +77,25 @@
                     : '/statics/default-bLogo.png'
                 "
                 style="height:45px; width:45px"
-            /></q-avatar>
+              />
+            </q-avatar>
             {{ col.value.bname }}
           </q-td>
         </template>
 
         <template slot="body-cell-actions">
           <q-td style="width:140px">
-            <q-btn
-              flat
-              round
-              size="18px"
-              color="positive"
-              icon="fas fa-check-circle"
-            ></q-btn>
+            <q-btn flat round size="18px" color="positive" icon="fas fa-check-circle"></q-btn>
 
-            <q-btn
-              flat
-              round
-              size="18px"
-              color="negative"
-              icon="fas fa-times-circle"
-            ></q-btn>
+            <q-btn flat round size="18px" color="negative" icon="fas fa-times-circle"></q-btn>
           </q-td>
         </template>
       </q-table>
     </q-card>
   </q-page>
 </template>
-
 <script>
 export default {
-  name: "PageIndex",
   data() {
     return {
       columns: [
