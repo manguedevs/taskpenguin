@@ -50,10 +50,7 @@
     <q-page-container>
       <router-view />
     </q-page-container>
-    <div class="text-right">  
-      <span class="loginTitle">
-            <strong>TASK</strong>PENGUIN &copy; 2019
-      </span>
+    <c-footer />
   </div>
   </q-layout>
 </template>
