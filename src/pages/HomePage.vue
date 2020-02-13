@@ -59,9 +59,13 @@
 
         <template slot="body-cell-actions">
           <q-td style="width:140px">
-            <q-btn flat round size="18px" color="positive" icon="fas fa-check-circle"></q-btn>
+            <q-btn flat round size="xs" class="bg-transparent">
+              <q-icon size="lg" color="positive" name="fas fa-check-circle"></q-icon>
+            </q-btn>
+            <q-btn flat round size="xs" class="bg-transparent q-ml-xs">
+              <q-icon size="lg" color="negative" name="fas fa-times-circle"></q-icon>
+            </q-btn>
 
-            <q-btn flat round size="18px" color="negative" icon="fas fa-times-circle"></q-btn>
           </q-td>
         </template>
 
