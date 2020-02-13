@@ -1,6 +1,5 @@
 <template>
   <q-page padding class="flex">
-    <div class="backg absolute-top"></div>
     <q-card class="gastos" style="opacity:0.9;height:auto;width:100vw">
       <q-card-section>
         <div class="fit row">
@@ -81,12 +80,8 @@
           <q-td>
             <q-avatar>
               <img
-                :src="
-                  col.value.blogo.length > 0
-                    ? col.value.blogo
-                    : '/statics/default-bLogo.png'
-                "
-                style="height:45px; width:45px"
+                  :src="col.value.blogo.length > 0 ? col.value.blogo : '/statics/default-bLogo.png'                 "
+                  style="height:45px; width:45px"
               />
             </q-avatar>
             {{ col.value.bname }}
@@ -111,10 +106,10 @@
         <template slot="body-cell-actions">
           <q-td style="width:140px">
             <q-btn flat round size="xs" class="bg-transparent">
-              <q-icon size="lg" color="positive" name="fas fa-check-circle"></q-icon>
+              <q-icon size="lg" color="positive" name="fas fa-check-circle" />
             </q-btn>
             <q-btn flat round size="xs" class="bg-transparent q-ml-xs">
-              <q-icon size="lg" color="negative" name="fas fa-times-circle"></q-icon>
+              <q-icon size="lg" color="negative" name="fas fa-times-circle"/>
             </q-btn>
 
           </q-td>
@@ -279,12 +274,3 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.backg{
-  height: 100%;
-  width: 100%;
-  background-image:url("https://trello-attachments.s3.amazonaws.com/5e3f2503250c2e1b50dcea6d/5e437ec048b1b627bbbd4cf1/01047d2be1c773f67193b7ec7c3949da/71705888-daf8-4cfc-83e8-7d05bcfe431b_rw_1920.jpg");
-  background-size: cover;
-  filter: blur(2px);
-}
-</style>
