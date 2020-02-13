@@ -7,7 +7,53 @@
           <div class="col-6 col-xs-6 text-h4">Resumo da conta</div>
           <div class="col-md-6" align="right">
             <q-btn color="secondary" style="height:5vh;">Extrato</q-btn>
-        
+            <!-- começo do tutorial -->
+            <div id="q-app">
+              <div class="q-pa-md q-gutter-sm">
+                <q-btn label="Tutorial" color="primary" @click="carousel = true"></q-btn>
+                <q-dialog v-model="carousel">
+                  <q-carousel
+                    transition-prev="slide-right"
+                    transition-next="slide-left"
+                    swipeable
+                    animated
+                    v-model="slide"
+                    control-color="primary"
+                    navigation-icon="radio_button_unchecked"
+                    navigation
+                    padding
+                    height="40vh"
+                    class="bg-white shadow-1 rounded-borders"
+                  >
+                    <q-carousel-slide :name="1" class="column no-wrap flex-center">
+                      <q-icon name="payment" color="primary" size="9vh"></q-icon>
+                      <div class="q-mt-md text-center">
+                        {{ tutorial1 }}
+                      </div>
+                    </q-carousel-slide>
+                    <q-carousel-slide :name="2" class="column no-wrap flex-center">
+                      <q-icon name="live_tv" color="primary" size="9vh"></q-icon>
+                      <div class="q-mt-md text-center">
+                        {{ tutorial2 }}
+                      </div>
+                    </q-carousel-slide>
+                    <q-carousel-slide :name="3" class="column no-wrap flex-center">
+                      <q-icon name="layers" color="primary" size="9vh"></q-icon>
+                      <div class="q-mt-md text-center">
+                        {{ tutorial3 }}
+                      </div>
+                    </q-carousel-slide>
+                    <q-carousel-slide :name="4" class="column no-wrap flex-center">
+                      <q-icon name="terrain" color="primary" size="9vh"></q-icon>
+                      <div class="q-mt-md text-center">
+                        {{ tutorial4 }}
+                      </div>
+                    </q-carousel-slide>
+                  </q-carousel>
+                </q-dialog>
+              </div>
+            </div>
+            <!-- fim do tutorial -->
             <template>
               <div class="q-pa-md q-gutter-sm">
                 <q-btn label="Dados Cadastrais" color="primary" @click="userdata = true, clear()" />
@@ -150,7 +196,13 @@ export default {
   },
   data() {
     return {
-
+      carousel: false,
+      slide: 1,
+      tutorial1: 'Ao clicar no botão de ações você tera acesso a maior parte de funcionalidades do sistema',
+      tutorial2: 'Ao clicar ai , você vai conseguir ser feliz na sua vida rapaz, vai por mim',
+      tutorial3: 'O segredo agora é outro, adriano furacão fazendo a festa e quebrando tudo que vem pela frente',
+      tutorial4: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus, ratione eum minus fuga',
+      
       userdata: false,
       person:{
       name:"" , cpf:"", sex:"" , age:"", mail:"", country:"", state:"", 
