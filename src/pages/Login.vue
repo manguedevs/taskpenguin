@@ -123,7 +123,7 @@ export default {
     showNotification (status) {
       if(status == "invalid_grant"){
         this.$q.notify({
-        message: 'Incorrect user or passoword',
+        message: 'Incorrect user or password',
         icon: 'announcement',
         color: 'primary'
       })
