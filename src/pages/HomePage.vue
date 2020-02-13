@@ -10,7 +10,6 @@
           </div>
           <div class="col-md-3 col-xs-4 text-h6">
             Mês passado
-            <c-penguin/>
             <p class="text-subtitle1">R$ {{ prev }}</p>
           </div>
           <div class="col-md-6 text-h6">
@@ -27,7 +26,7 @@
       </q-card-section>
     </q-card>
     <q-card class="q-mt-md" style="opacity:0.9;height:100vh;width:100vw">
-      <q-table title="Contas" :data="data" :columns="columns" row-key="name">
+      <q-table title="Contas" :data="billList" :columns="columns" row-key="name">
         <template slot="body-cell-bank" slot-scope="col">
           <q-td>
             <q-avatar>
@@ -49,8 +48,9 @@
             <q-input filled v-model="col.row.paydate">
               <template v-slot:append>
                 <q-icon name="event" class="cursor-pointer">
-                  <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
-                      <q-date style="overflow:hidden" mask="DD/MM/YYYY" v-model="col.row.paydate" @input="() => $refs.qDateProxy.hide()"></q-date>
+                  <q-popup-proxy v-model="datePicker[col.row.bank.bname]" @input="checkDatePicker(col.row)" ref="qDateProxy" transition-show="scale" transition-hide="scale">
+                      <q-date style="overflow:hidden" mask="DD/MM/YYYY" v-model="newPaymentDate">
+                      </q-date>
                   </q-popup-proxy>
                 </q-icon>
               </template>
@@ -72,6 +72,25 @@
 
       </q-table>
     </q-card>
+    <q-dialog v-model="paymentConfirm" persistent>
+      <q-card style="width:25vw; background-color:">
+        <q-card-section class="row">
+          <q-icon class="col-12" size="64px" name="fas fa-exclamation-triangle" color="orange-8" />
+          <span class="q-mx-sm text-justify">O dia que você selecionou é depois do vencimento de sua conta, se confirmar você ficará sujeito a cobranças extras do banco por conta do atraso no pagamento.</span>
+        </q-card-section>
+
+        <q-card-actions>
+          <q-btn
+              flat
+              label="Estou ciente!"
+              color="primary"
+              v-close-popup
+              @click="changePymtDate"
+          />
+          <q-btn flat label="Cancelar" color="negative" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </q-page>
 </template>
 <script>
@@ -124,7 +143,7 @@ export default {
           sortable: false
         }
       ],
-      data: [
+      billList: [
         {
           bank: { bname: "Banco do Brasil", blogo: "/statics/logo-bb.png" },
           bill_info: "Conta referente ao Banco do Brasil",
@@ -152,7 +171,11 @@ export default {
         }
       ],
       prev: 750,
-      current: 711.48
+      current: 711.48,
+      datePicker: {},
+      bill:"",
+      newPaymentDate:"",
+      paymentConfirm: false,
     };
   },
   methods: {
@@ -167,6 +190,22 @@ export default {
         return `+${change}`;
       }
     },
+    checkDatePicker(bill){
+      if (!this.datePicker[bill.bank.bname]){
+        if (this.newPaymentDate > bill.expdate){ // TODO: Testar se isso não quebra, já que tá só comparando as strings e não date objects
+          this.paymentConfirm = true;
+        }else{
+          this.changePymtDate();
+        }
+      }else{
+        this.bill = bill;
+        this.newPaymentDate = bill.paydate;
+      }
+    },
+    changePymtDate(){
+      this.bill.paydate = this.newPaymentDate;
+      // Send request to backend
+    }
 
   }
 };
