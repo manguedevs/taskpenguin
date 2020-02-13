@@ -26,7 +26,7 @@
       </q-card-section>
     </q-card>
     <q-card class="q-mt-md" style="opacity:0.9;height:100vh;width:100vw">
-      <q-table title="Contas" :data="billList" :columns="columns" row-key="name">
+      <q-table ref="dataTable" title="Contas" :data="billList" :columns="columns" row-key="name">
         <template slot="body-cell-bank" slot-scope="col">
           <q-td>
             <q-avatar>
@@ -95,6 +95,9 @@
 </template>
 <script>
 export default {
+	mounted(){
+		this.$refs.dataTable.sort("paydate");
+  },
   data() {
     return {
       columns: [
