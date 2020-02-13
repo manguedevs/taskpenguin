@@ -7,6 +7,56 @@
           <div class="col-6 col-xs-6 text-h4">Resumo da conta</div>
           <div class="col-md-6" align="right">
             <q-btn color="secondary" style="height:5vh;">Extrato</q-btn>
+        
+            <template>
+              <div class="q-pa-md q-gutter-sm">
+                <q-btn label="Dados Cadastrais" color="primary" @click="userdata = true, clear()" />
+                <q-dialog v-model="userdata" persistent>
+                  <q-card style="min-width: 350px">
+                    
+                    <q-card-section class ="bg-blue" >
+                    
+                    <div class="text-h6">Prencha com seus dados</div>    
+                    </q-card-section>
+                    <q-card-section class="q-pt-none">
+                      <q-input label = "Nome completo (sem abreviações)*" v-model="person.name"/>
+                      <q-input label ="CPF*" v-model="person.cpf"/>
+                      <q-input label ="Sexo*" v-model="person.sex"/>
+                      <q-input label ="Data de nascimento*" v-model="person.age"/>
+                      <q-input label ="Email*" v-model="person.mail" />
+                      <q-input label ="País*" v-model="person.country"/>
+                      <q-input label ="Estado*" v-model="person.state"/>
+                      <q-input label ="Cidade*" v-model="person.city"/>
+                      <q-input label ="Cep*" v-model="person.postalcode"/>
+                      <q-input label ="DDD*" v-model="person.ddd"/>
+                      <q-input label ="Número de telefone (Sem DDD)* " v-model="person.cellphonenumber"/>          
+                      <q-card-section class = "bg-blue q-mt-md">
+                      <div class="text-h6" >Insira as imagens</div>
+                      </q-card-section> 
+
+                      <q-file class = "q-mb-sm q-mt-sm" label ="Foto sua (sem óculos)" outlined v-model="person.userpic">
+                        <template v-slot:prepend>
+                      <q-icon name="attach_file" />
+                        </template>
+                      </q-file>
+                      <q-file label ="Foto de sua identidade" outlined v-model="person.identitypic">
+                        <template v-slot:prepend>
+                      <q-icon name="attach_file" />
+                        </template>
+                      </q-file>
+
+
+                    </q-card-section>
+
+                    <q-card-actions align="right" class="text-primary">
+                      <q-btn flat label="Cancelar" v-close-popup />
+                      <q-btn flat label="Finalizar cadastro" v-close-popup />
+                    </q-card-actions>
+                  </q-card>
+                </q-dialog>
+              </div>
+            </template>
+  
           </div>
           <div class="col-md-3 col-xs-4 text-h6">
             Mês passado
@@ -78,6 +128,12 @@
 export default {
   data() {
     return {
+
+      userdata: false,
+      person:{
+      name:"" , cpf:"", sex:"" , age:"", mail:"", country:"", state:"", 
+      city:"", postalcode:"", ddd:"" ,cellphonenumber:"", userpic:"", identitypic:""
+      }, 
       columns: [
         {
           name: "bank",
@@ -167,7 +223,11 @@ export default {
         return `+${change}`;
       }
     },
-
+    clear(){
+      this.person.name="" , this.person.cpf="", this.person.sex="" , this.person.age="", this.person.mail="",
+      this.person.country="", this.person.state="", this.person.city="", this.person.postalcode="",
+      this.person.ddd="" ,this.person.cellphonenumber="", this.person.userpic="", this.person.identitypic=""
+    }
   }
 };
 </script>
