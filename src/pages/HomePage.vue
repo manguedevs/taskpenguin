@@ -1,6 +1,7 @@
 <template>
   <q-page padding class="flex">
-    <q-card class="gastos" style="height:auto;width:100vw">
+    <div class="backg absolute-top"></div>
+    <q-card class="gastos" style="opacity:0.9;height:auto;width:100vw">
       <q-card-section>
         <div class="fit row">
           <div class="col-6 col-xs-6 text-h4">Resumo da conta</div>
@@ -25,7 +26,7 @@
         </div>
       </q-card-section>
     </q-card>
-    <q-card class="q-mt-md" style="height:100vh;width:100vw">
+    <q-card class="q-mt-md" style="opacity:0.9;height:100vh;width:100vw">
       <q-table title="Contas" :data="data" :columns="columns" row-key="name">
         <template slot="body-cell-bank" slot-scope="col">
           <q-td>
@@ -170,3 +171,13 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.backg{
+  height: 100%;
+  width: 100%;
+  background-image:url("https://trello-attachments.s3.amazonaws.com/5e3f2503250c2e1b50dcea6d/5e437ec048b1b627bbbd4cf1/01047d2be1c773f67193b7ec7c3949da/71705888-daf8-4cfc-83e8-7d05bcfe431b_rw_1920.jpg");
+  background-size: cover;
+  filter: blur(2px);
+}
+</style>
