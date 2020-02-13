@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar>
+      <q-toolbar style="height:9vh">
         <q-btn
           flat
           dense
@@ -11,7 +11,11 @@
           @click="drawer = !drawer"
         />
 
-        <q-toolbar-title>MH-CIP</q-toolbar-title>
+        <q-toolbar-title>
+          <span class="loginTitle">
+            <strong>TASK</strong>PENGUIN
+          </span>
+      </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
@@ -46,6 +50,8 @@
     <q-page-container>
       <router-view />
     </q-page-container>
+    <t-footer />
+  </div>
   </q-layout>
 </template>
 
