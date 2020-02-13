@@ -7,7 +7,7 @@
           <div class="col-6 col-xs-6 text-h4">Resumo da conta</div>
           <div class="col-md-6" align="right">
             <q-btn color="secondary" style="height:5vh;">Extrato</q-btn>
-            <!-- começo do tutorial! -->
+            <!-- começo do tutorial -->
             <div id="q-app">
               <div class="q-pa-md q-gutter-sm">
                 <q-btn label="Tutorial" color="primary" @click="carousel = true"></q-btn>
