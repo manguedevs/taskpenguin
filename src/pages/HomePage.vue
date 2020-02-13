@@ -9,6 +9,7 @@
           </div>
           <div class="col-md-3 col-xs-4 text-h6">
             Mês passado
+            <c-penguin/>
             <p class="text-subtitle1">R$ {{ prev }}</p>
           </div>
           <div class="col-md-6 text-h6">
@@ -26,47 +27,6 @@
     </q-card>
     <q-card class="q-mt-md" style="height:100vh;width:100vw">
       <q-table title="Contas" :data="data" :columns="columns" row-key="name">
-        <template slot="body-cell-priority">
-          <q-td>
-            <q-btn size="10px" icon="fas fa-angle-up" flat round></q-btn>
-            <br />
-            <q-btn size="10px" icon="fas fa-angle-down" flat round></q-btn>
-          </q-td>
-        </template>
-        <!-- <template v-slot:body="props">
-          <q-tr :props="props">
-            <q-td key="priority" :props="props">
-              <q-badge color="green">
-                SALVE SALVE
-              </q-badge>
-            </q-td>
-            <q-td key="bank" :props="props">
-              <q-badge color="green">
-                {{ props.row.bank }}
-              </q-badge>
-            </q-td>
-            <q-td key="info" :props="props">
-              <q-badge color="green">
-                {{ props.row.bill_info }}
-              </q-badge>
-            </q-td>
-            <q-td key="expiration" :props="props">
-              <q-badge color="green">
-                {{ props.row.expdate }}
-              </q-badge>
-            </q-td>
-            <q-td key="price" :props="props">
-              <q-badge color="green">
-                {{ props.row.price }}
-              </q-badge>
-            </q-td>
-            <q-td key="actions" :props="props">
-              <q-badge color="green">
-                {{ props.row.actions }}
-              </q-badge>
-            </q-td>
-          </q-tr>
-        </template>-->
         <template slot="body-cell-bank" slot-scope="col">
           <q-td>
             <q-avatar>
@@ -82,6 +42,20 @@
             {{ col.value.bname }}
           </q-td>
         </template>
+     
+        <template slot="body-cell-paydate" slot-scope="col">
+          <q-td style="width:170px">
+            <q-input filled v-model="col.row.paydate">
+              <template v-slot:append>
+                <q-icon name="event" class="cursor-pointer">
+                  <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
+                      <q-date style="overflow:hidden" mask="DD/MM/YYYY" v-model="col.row.paydate" @input="() => $refs.qDateProxy.hide()"></q-date>
+                  </q-popup-proxy>
+                </q-icon>
+              </template>
+            </q-input>
+          </q-td>
+        </template>
 
         <template slot="body-cell-actions">
           <q-td style="width:140px">
@@ -90,6 +64,7 @@
             <q-btn flat round size="18px" color="negative" icon="fas fa-times-circle"></q-btn>
           </q-td>
         </template>
+
       </q-table>
     </q-card>
   </q-page>
@@ -99,13 +74,6 @@ export default {
   data() {
     return {
       columns: [
-        {
-          name: "priority",
-          label: "",
-          align: "left",
-          field: "priority",
-          sortable: false
-        },
         {
           name: "bank",
           align: "left",
@@ -128,6 +96,14 @@ export default {
           // sort: (a, b) => parseInt(a, 10) - parseInt(b, 10)
         },
         {
+          name: "paydate",
+          align: "center",
+          label: "Data de pagamento",
+          field: "paydate",
+          sortable: true,
+          // sort: (a, b) => parseInt(a, 10) - parseInt(b, 10)
+        },
+        {
           name: "price",
           align: "center",
           label: "Valor da conta",
@@ -147,6 +123,7 @@ export default {
           bank: { bname: "Banco do Brasil", blogo: "/statics/logo-bb.png" },
           bill_info: "Conta referente ao Banco do Brasil",
           expdate: "12/02/2020",
+          paydate: "08/02/2020",
           price: 78
         },
         {
@@ -157,12 +134,14 @@ export default {
           },
           bill_info: "Conta de Internet",
           expdate: "11/02/2020",
+          paydate: "10/02/2020",
           price: 99
         },
         {
           bank: { bname: "Unimed", blogo: "" },
           bill_info: "Conta plano de saúde Unimed",
           expdate: "09/02/2020",
+          paydate: "07/02/2020",
           price: 240
         }
       ],
@@ -181,7 +160,8 @@ export default {
         let change = ((this.current - this.prev) / this.prev) * 100;
         return `+${change}`;
       }
-    }
+    },
+
   }
 };
 </script>
