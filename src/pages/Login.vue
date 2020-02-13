@@ -1,0 +1,220 @@
+<template>
+  <div>
+    <form id="login" @submit="login">
+    <div class="text-center text-white headerToTop">
+      <span class="loginTitle">
+        <strong>TASK</strong>PENGUIN
+      </span>
+    </div>
+
+    <div class="row justify-center inputToHeader">
+      <div class="col-8 col-lg-3">
+        <q-input
+          outlined
+          rounded
+          name="user"
+          ref="user"
+          v-model="user"
+          placeholder="Nome"
+          class="cursor-pointer user"
+          color="white"
+          dark
+          dense
+          clearable
+          clear-icon="close"
+          :rules="[rules.required]"
+        >
+          <template v-slot:prepend>
+            <q-icon name="person" />
+          </template>
+        </q-input>
+      </div>
+    </div>
+
+    <div class="row justify-center q-mt-md">
+      <div class="col-8 col-lg-3">
+        <q-input
+          outlined
+          rounded
+          name="pass"
+          ref="pass"
+          v-model="password"
+          :type="isPwd ? 'password' : 'text'"
+          placeholder="Senha"
+          class="cursor-pointer"
+          color="white"
+          dark
+          dense
+          :rules="[rules.required, rules.min]"
+        >
+          <template v-slot:prepend>
+            <q-icon name="vpn_key" />
+          </template>
+          <template v-slot:append>
+            <q-icon
+              :name="isPwd ? 'visibility_off' : 'visibility'"
+              class="cursor-pointer"
+              @click="isPwd = !isPwd"
+            />
+          </template>
+        </q-input>
+      </div>
+    </div>
+
+    <div class="row justify-center q-mt-md">
+      <q-btn outline rounded dense color="white" type="submit" id="enter" class="text-lowercase q-px-md">Entrar</q-btn>
+    </div>
+
+    <div class="row justify-center q-mt-md hiperlinks text-white">
+      <a href="/login/password-recovery" class="q-mr-sm">Esqueceu a senha?</a> |
+      <a class="q-ml-sm" href="/login/signup">Registrar-se</a>
+    </div>
+
+    <div class="row justify-center marginToFotter">
+      <div>
+        <q-btn
+          color="white"
+          size="sm"
+          round
+          outline
+          icon="fab fa-facebook-f"
+          class="animated fadeInLeft delay-1s q-mr-sm"
+          href="#"
+          target="_blank"
+        ></q-btn>
+      </div>
+
+      <div>
+        <q-btn
+          color="white"
+          size="sm"
+          round
+          outline
+          icon="fab fa-linkedin-in"
+          class="animated fadeInLeft delay-1s"
+          href="#"
+          target="_blank"
+        ></q-btn>
+      </div>
+
+      <div>
+        <q-btn
+          color="white"
+          size="sm"
+          round
+          outline
+          icon="far fa-envelope"
+          class="animated fadeInLeft delay-1s q-ml-sm"
+          href="#"
+          target="_blank"
+        ></q-btn>
+      </div>
+    </div>
+    </form>
+  </div>
+</template>
+
+<script>
+export default {
+  methods: {
+    limparForm(){
+      this.password = ""
+    },
+    showNotif (status) {
+      if(status == "invalid_grant"){
+        this.$q.notify({
+        message: 'Usuário ou senha incorreta',
+        icon: 'announcement',
+        color: 'primary'
+      })
+      }
+      else {
+        this.$q.notify({
+        message: 'Ocorreu um erro, por favor tente novamente mais tarde.',
+        icon: 'announcement',
+        color: 'primary'
+      })
+      }
+      
+    },
+    login(e) {
+      this.$refs.user.validate()
+      this.$refs.pass.validate()
+      e.preventDefault();
+      if (this.$refs.user.hasError || this.$refs.pass.hasError) {
+        return;
+      }
+      
+      //this.loading = true;
+      this.$auth.newLogin(this.user, this.password, err => {
+        if (err && err.code == "invalid_grant") {
+          this.showNotif(err.code)
+          console.log("Error", err);
+        } else if (err) {
+          this.showNotif(err.code)
+          console.log("Error", err);
+        }
+        //this.loading = false;
+      });
+    }
+  },
+  data() {
+    return {
+      user: null,
+      password: null,
+      isPwd: true,
+      rules: {
+        required: value => !!value || "Campo Obrigatorio",
+        min: v => (v && v.length >= 8) || "Minimo de 8 caracteres"
+      }
+    };
+  }
+};
+</script>
+
+<style>
+.headerToTop {
+  margin-top: 100px;
+}
+.inputToHeader {
+  margin-top: 60px;
+}
+
+.marginToFotter{
+  margin-top: 110px
+}
+
+.loginTitle {
+  padding-top: 10px;
+  font-size: 45px;
+  letter-spacing: 2px;
+}
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+body {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-image: url(https://www.itl.cat/pngfile/big/37-372787_hd-flat-design-wallpaper-full-hd.jpg);
+}
+.hiperlinks {
+  font-size: 11px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+}
+
+a:link {
+  color: white;
+}
+</style>
+
+
