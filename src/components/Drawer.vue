@@ -1,24 +1,28 @@
 <template>
     <div>
-        <q-drawer v-model="menu" show-if-above :width="200" :breakpoint="600">
-            <q-list style="height: 100%;border-right: 1px solid #bbb">
-            <q-item class="q-mb-sm" style="height:21vh">
-                <q-img
-                class="absolute-top"
-                src="https://cdn.quasar.dev/img/material.png"
-                style="height: 150px"
-                >
-                <div class="absolute-bottom bg-transparent">
-                    <q-avatar size="64px" class="q-mb-sm q-ml-xl" color="teal-2">
+        <q-drawer
+            v-model="menu"
+            show-if-above
+            :width="230"
+            :breakpoint="600"
+        >
+            <q-list style="background-color:#EFEEEE;height: 100%;border-right: 1px solid #bbb; color:white">
+            <q-item class="q-pt-md" style="background-color:#305F72">
+                <div class="row" style="margin-left:-0.5vw; height:100px">
+                    <div class="col-3">
+                    <q-avatar size="56px" class="" color="teal-2">
                     <img
                         src="https://static.thenounproject.com/png/48550-200.png"
                     />
                     </q-avatar>
-                    <div class="text-weight-bold">Jorge Ogrande</div>
-                    <div>jorge@ogrande.com</div>
+                    </div>
+                    <div class="col-6 q-ml-md q-mt-sm">
+                        <b>Jorge Ogrande</b>
+                        jorge@ogrande.com
+                    </div>
                 </div>
-                </q-img>
             </q-item>
+            <q-splitter horizontal style="width:100%"></q-splitter>
             <q-item v-ripple to="/" clickable>
                 <q-item-section avatar>
                 <q-icon name="fas fa-money-check-alt" />
