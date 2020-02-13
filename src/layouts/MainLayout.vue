@@ -50,7 +50,7 @@
     <q-page-container>
       <router-view />
     </q-page-container>
-    <c-footer />
+    <t-footer />
   </div>
   </q-layout>
 </template>
