@@ -40,7 +40,7 @@
             ref="pass"
             v-model="password"
             :type="isPwd ? 'password' : 'text'"
-            placeholder="Senha"
+            placeholder="Password"
             class="cursor-pointer"
             color="white"
             dark
@@ -70,7 +70,7 @@
             ref="repass"
             v-model="repassword"
             :type="isPwd ? 'password' : 'text'"
-            placeholder="Confirme sua Senha"
+            placeholder="Confirm Password"
             class="cursor-pointer"
             color="white"
             dark
@@ -100,12 +100,12 @@
           type="submit"
           id="register"
           class="text-lowercase q-px-md"
-        >Registrar</q-btn>
+        >Register</q-btn>
       </div>
 
       <div class="row justify-center q-mt-md hiperlinks text-white">
-        <a href="/login" class="q-mr-sm">Ja possui Login?</a> |
-        <a class="q-ml-sm" href="/login/password-recovery">Esqueceu a senha?</a>
+        <a href="/login" class="q-mr-sm">Already have Login?</a> |
+        <a class="q-ml-sm" href="/login/password-recovery">Forgot password?</a>
       </div>
 
       <div class="row justify-center marginToFotter">
@@ -163,22 +163,21 @@ export default {
     showNotification(err) {
       if (!err) {
         this.$q.notify({
-          message: "Usuário criado com sucesso!",
+          message: "User created successfully!",
           icon: "announcement",
           color: "primary"
         });
-        this.$router.push('/login');
+        this.$router.push("/login");
         this.resetForm();
       } else if (err.code == "user_exists") {
         this.$q.notify({
-          message: "Usuário já existe, tente outro usuário ou realize o login.",
+          message: "Incorrect user or passoword",
           icon: "announcement",
           color: "primary"
         });
       } else {
-        console.error("Unknown error", err);
         this.$q.notify({
-          message: "Ocorreu um erro, por favor tente novamente mais tarde.",
+          message: "An error occurred, please try again later.",
           icon: "announcement",
           color: "primary"
         });
@@ -246,7 +245,7 @@ body {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: left top;
-  background-image: url(https://www.itl.cat/pngfile/big/37-372787_hd-flat-design-wallpaper-full-hd.jpg  );
+  background-image: url(https://www.itl.cat/pngfile/big/37-372787_hd-flat-design-wallpaper-full-hd.jpg);
 }
 .hiperlinks {
   font-size: 11px;
