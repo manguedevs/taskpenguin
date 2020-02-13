@@ -108,6 +108,7 @@ export default {
           align: "center",
           label: "Valor da conta",
           field: "price",
+          format: val => `R$ ${val}`,
           sortable: true
         },
         {
@@ -124,7 +125,7 @@ export default {
           bill_info: "Conta referente ao Banco do Brasil",
           expdate: "12/02/2020",
           paydate: "08/02/2020",
-          price: 78
+          price: 78.99
         },
         {
           bank: {
@@ -135,14 +136,14 @@ export default {
           bill_info: "Conta de Internet",
           expdate: "11/02/2020",
           paydate: "10/02/2020",
-          price: 99
+          price: 99.33
         },
         {
           bank: { bname: "Unimed", blogo: "" },
           bill_info: "Conta plano de saúde Unimed",
           expdate: "09/02/2020",
           paydate: "07/02/2020",
-          price: 240
+          price: 240.48
         }
       ],
       prev: 750,
