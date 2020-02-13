@@ -40,12 +40,12 @@
           type="submit"
           id="continue"
           class="text-lowercase q-px-md"
-        >Continuar</q-btn>
+        >Continue</q-btn>
       </div>
 
       <div class="row justify-center q-mt-md hiperlinks text-white">
-        <a href="/login" class="q-mr-sm">Ja possui Login?</a> |
-        <a class="q-ml-sm" href="/login/signup">Registrar-se</a>
+        <a href="/login" class="q-mr-sm">Already have Login?</a> |
+        <a class="q-ml-sm" href="/login/signup">Register</a>
       </div>
 
       <div class="row justify-center marginToFotter">
