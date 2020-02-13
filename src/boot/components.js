@@ -23,5 +23,5 @@ requireComponent.keys().forEach((fileName) => {
   indexes
   indexes.filter( val => val > 0).forEach((idx, index) => finalComponentName = finalComponentName.insert(idx+index, '-'));   
 
-  Vue.component(`c-${finalComponentName.toLowerCase()}` , componentConfig.default || componentConfig);
+  Vue.component(`t-${finalComponentName.toLowerCase()}` , componentConfig.default || componentConfig);
 });
