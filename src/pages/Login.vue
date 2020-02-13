@@ -15,7 +15,7 @@
           name="user"
           ref="user"
           v-model="user"
-          placeholder="Nome"
+          placeholder="Name"
           class="cursor-pointer user"
           color="white"
           dark
@@ -40,7 +40,7 @@
           ref="pass"
           v-model="password"
           :type="isPwd ? 'password' : 'text'"
-          placeholder="Senha"
+          placeholder="Password"
           class="cursor-pointer"
           color="white"
           dark
@@ -62,12 +62,12 @@
     </div>
 
     <div class="row justify-center q-mt-md">
-      <q-btn outline rounded dense color="white" type="submit" id="enter" class="text-lowercase q-px-md">Entrar</q-btn>
+      <q-btn outline rounded dense color="white" type="submit" id="enter" class="text-lowercase q-px-md">Login</q-btn>
     </div>
 
     <div class="row justify-center q-mt-md hiperlinks text-white">
-      <a href="/login/password-recovery" class="q-mr-sm">Esqueceu a senha?</a> |
-      <a class="q-ml-sm" href="/login/signup">Registrar-se</a>
+      <a href="/login/password-recovery" class="q-mr-sm">Forgot password?</a> |
+      <a class="q-ml-sm" href="/login/signup">Register</a>
     </div>
 
     <div class="row justify-center marginToFotter">
@@ -120,17 +120,17 @@ export default {
     limparForm(){
       this.password = ""
     },
-    showNotif (status) {
+    showNotification (status) {
       if(status == "invalid_grant"){
         this.$q.notify({
-        message: 'Usuário ou senha incorreta',
+        message: 'Incorrect user or passoword',
         icon: 'announcement',
         color: 'primary'
       })
       }
       else {
         this.$q.notify({
-        message: 'Ocorreu um erro, por favor tente novamente mais tarde.',
+        message: 'An error occurred, please try again later.',
         icon: 'announcement',
         color: 'primary'
       })
@@ -148,10 +148,10 @@ export default {
       //this.loading = true;
       this.$auth.newLogin(this.user, this.password, err => {
         if (err && err.code == "invalid_grant") {
-          this.showNotif(err.code)
+          this.showNotification(err.code)
           console.log("Error", err);
         } else if (err) {
-          this.showNotif(err.code)
+          this.showNotification(err.code)
           console.log("Error", err);
         }
         //this.loading = false;
@@ -164,8 +164,8 @@ export default {
       password: null,
       isPwd: true,
       rules: {
-        required: value => !!value || "Campo Obrigatorio",
-        min: v => (v && v.length >= 8) || "Minimo de 8 caracteres"
+        required: value => !!value || "Required field",
+        min: v => (v && v.length >= 8) || "Minimum of 8 characters"
       }
     };
   }
