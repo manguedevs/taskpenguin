@@ -207,6 +207,10 @@ export default {
     },
     changePymtDate(){
       this.bill.paydate = this.newPaymentDate;
+      this.$q.notify({
+        message: 'Data de pagamento alterada com sucesso!',
+        color: 'positive'
+      })
       // Send request to backend
     }
 
