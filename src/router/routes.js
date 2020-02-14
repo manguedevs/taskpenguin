@@ -4,9 +4,24 @@ const routes = [
     component: () => import("../layouts/MainLayout.vue"),
     children: [
       {
-        path: "/",
+        path: "/home",
         name: "home",
-        component: () => import("../pages/HomePage.vue")
+        component: () => import("../pages/Charts.vue")
+      },
+      {
+        path: '/bills',
+        name: 'bills',
+        component: () => import('pages/Bills.vue'),
+      },
+      {
+        path: '/bills/settings',
+        name: 'bills-settings',
+        component: () => import('pages/BillsSettings.vue'),
+      },
+      {
+        path: '/bills/report',
+        name: 'bills-report',
+        component: () => import('pages/BillsReport.vue'),
       }
     ]
   },
@@ -25,6 +40,7 @@ const routes = [
     name: 'signup',
     component: () => import('pages/SignUp.vue'),
   },
+  
 ];
 
 // Always leave this as last one
