@@ -1,30 +1,5 @@
 <template>
   <q-page padding class="flex">
-    <q-card flat class="gastos" style="height:auto;width:100vw">
-      <q-card-section>
-        <div class="fit row">
-          <div class="col-6 col-xs-6 text-h4">Resumo da conta</div>
-          <div class="col-md-6" align="right">
-            <q-btn style="font-size:15px;height:6vh; width:10vw;background: rgb(255,184,140);
-background: linear-gradient(90deg, rgba(255,184,140,1) 0%, rgba(229,101,144,1) 100%); color:whitesmoke">Extrato</q-btn> 
-          </div>
-          <div class="col-md-3 col-xs-4 text-h6">
-            Mês passado
-            <p class="text-subtitle1">R$ {{ prev }}</p>
-          </div>
-          <div class="col-md-6 text-h6">
-            Este mês
-            <div class="text-subtitle1 row">
-              <p>R$ {{ current }}</p>
-              <p
-                class="q-ml-xs text-bold"
-                :class="percentChange() > 0 ? 'text-negative' : 'text-positive'"
-              >({{ percentChange().toFixed(2) }}%)</p>
-            </div>
-          </div>
-        </div>
-      </q-card-section>
-    </q-card>
     <q-card flat class="q-mt-md" style="opacity:0.9;height:70vh;width:100vw">
       <q-table ref="dataTable" title="Contas" :data="billList" :columns="columns" row-key="name">
         <template slot="body-cell-bank" slot-scope="col">
