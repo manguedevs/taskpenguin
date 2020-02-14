@@ -41,7 +41,7 @@
                     </span> 
                 </q-item>
 
-                <q-item active-class="activeLink" class="row q-pt-md" style="font-size:18px; height:65px" v-ripple to="/bills/settings" clickable>
+                <q-item active-class="activeLink" class="row" style="font-size:18px; height:65px" v-ripple to="/bills/settings" clickable>
                     <span class="q-ml-md" >
                         <q-icon class="q-mr-sm" name="fas fa-envelope-open-text" /> 
                         Configuração de faturas
