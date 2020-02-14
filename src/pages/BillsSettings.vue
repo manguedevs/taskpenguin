@@ -1,13 +1,14 @@
 <template>
   <q-page padding class="flex">
-    <q-card class="gastos" style="opacity:0.9;height:auto;width:100vw">
+    <q-card flat class="gastos" style="height:auto;width:100vw">
       <q-card-section>
         <div class="fit row">
           <div class="col-6 col-xs-6 text-h4">Resumo da conta</div>
           <div class="col-md-6" align="right">
-            <q-btn color="secondary" style="height:5vh;">Extrato</q-btn>
+            <q-btn style="font-size:15px;height:6vh; width:10vw;background: rgb(255,184,140);
+              background: linear-gradient(90deg, rgba(255,184,140,1) 0%, rgba(229,101,144,1) 100%); color:whitesmoke">Extrato</q-btn>
             <!-- começo do tutorial -->
-            <div id="q-app">
+            <!-- <div id="q-app">
               <div class="q-pa-md q-gutter-sm">
                 <q-btn label="Tutorial" color="primary" @click="carousel = true"></q-btn>
                 <q-dialog v-model="carousel">
@@ -51,9 +52,9 @@
                   </q-carousel>
                 </q-dialog>
               </div>
-            </div>
+            </div> -->
             <!-- fim do tutorial -->
-            <template>
+            <!-- <template>
               <div class="q-pa-md q-gutter-sm">
                 <q-btn label="Dados Cadastrais" color="primary" @click="userdata = true, clear()" />
                 <q-dialog v-model="userdata" persistent>
@@ -100,7 +101,7 @@
                   </q-card>
                 </q-dialog>
               </div>
-            </template>
+            </template> -->
   
           </div>
           <div class="col-md-3 col-xs-4 text-h6">
@@ -120,7 +121,7 @@
         </div>
       </q-card-section>
     </q-card>
-    <q-card class="q-mt-md" style="opacity:0.9;height:100vh;width:100vw">
+    <q-card flat class="q-mt-md" style="opacity:0.9;height:auto;width:100vw">
       <q-table ref="dataTable" title="Contas" :data="billList" :columns="columns" row-key="name">
         <template slot="body-cell-bank" slot-scope="col">
           <q-td>
@@ -146,18 +147,6 @@
                 </q-icon>
               </template>
             </q-input>
-          </q-td>
-        </template>
-
-        <template slot="body-cell-actions">
-          <q-td style="width:140px">
-            <q-btn flat round size="xs" class="bg-transparent">
-              <q-icon size="lg" color="positive" name="fas fa-check-circle" />
-            </q-btn>
-            <q-btn flat round size="xs" class="bg-transparent q-ml-xs">
-              <q-icon size="lg" color="negative" name="fas fa-times-circle"/>
-            </q-btn>
-
           </q-td>
         </template>
 
@@ -240,13 +229,6 @@ export default {
           field: "price",
           format: val => `R$ ${val}`,
           sortable: true
-        },
-        {
-          name: "actions",
-          align: "left",
-          label: "Ações",
-          field: "actions",
-          sortable: false
         }
       ],
       billList: [

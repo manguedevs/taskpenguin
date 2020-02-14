@@ -2,11 +2,11 @@
   <q-layout view="lHh Lpr lFf" style="overflow: hidden;">
     <div class="backg absolute-top"></div>
 
-    <t-header/>
+    <t-drawer/>
     <q-page-container>
       <router-view />
     </q-page-container>
-    <t-penguin/>
+    <!-- <t-penguin/> -->
     <t-footer id="footer" />
   </q-layout>
 </template>
@@ -27,7 +27,7 @@ export default {
 .backg{
   height: 100%;
   width: 100vw;
-  background-image:url("https://trello-attachments.s3.amazonaws.com/5e3f2503250c2e1b50dcea6d/5e437ec048b1b627bbbd4cf1/01047d2be1c773f67193b7ec7c3949da/71705888-daf8-4cfc-83e8-7d05bcfe431b_rw_1920.jpg");
+  background-color:#F8F9FA;
   background-size: cover;
   filter: blur(2px);
   z-index: -1;
@@ -38,6 +38,14 @@ export default {
   z-index: 50;
   color: white;
   margin-top: 11vh;
+}
+
+.activeLink{
+  color:#F8F9FA;
+  background: linear-gradient(90deg, rgba(255,184,140,0.6) 0%, rgba(229,101,144,0.0) 100%);
+  background-size: 30% 100%;
+  background-repeat: no-repeat;
+  border-radius: 2px;
 }
 
 </style>
