@@ -7,6 +7,8 @@
         </span>
       </div>
 
+     
+
       <div class="row justify-center inputToHeader">
         <div class="col-8 col-lg-3">
           <q-input
@@ -29,7 +31,7 @@
           </q-input>
         </div>
       </div>
-
+      
       <div class="row justify-center q-mt-md">
         <div class="col-8 col-lg-3">
           <q-input
@@ -89,7 +91,7 @@
       </div>
 
       <div class="row justify-center q-mt-md">
-        <q-btn
+        <q-btn 
           dense
           type="submit"
           id="register"
@@ -101,7 +103,45 @@
         <a href="/login" class="q-mr-sm">Already have Login?</a> |
         <a class="q-ml-sm" href="/login/password-recovery">Forgot password?</a>
       </div>
+      
+      
+      <template>
+  <div class="q-pa-md q-gutter-sm">
+    <q-btn label="Maximized" color="primary" @click="dialog = true" />
 
+    <q-dialog
+      v-model="dialog"
+      persistent
+      :maximized="maximizedToggle"
+      transition-show="slide-up"
+      transition-hide="slide-down"
+    >
+      <q-card class="bg-primary text-white">
+        <q-bar>
+          <q-space />
+
+          <q-btn dense flat icon="minimize" @click="maximizedToggle = false" :disable="!maximizedToggle">
+            <q-tooltip v-if="maximizedToggle" content-class="bg-white text-primary">Minimize</q-tooltip>
+          </q-btn>
+          <q-btn dense flat icon="crop_square" @click="maximizedToggle = true" :disable="maximizedToggle">
+            <q-tooltip v-if="!maximizedToggle" content-class="bg-white text-primary">Maximize</q-tooltip>
+          </q-btn>
+          <q-btn dense flat icon="close" v-close-popup>
+            <q-tooltip content-class="bg-white text-primary">Close</q-tooltip>
+          </q-btn>
+        </q-bar>
+
+        <q-card-section>
+          <div class="text-h6">Alert</div>
+        </q-card-section>
+
+        <q-card-section class="q-pt-none">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum repellendus sit voluptate voluptas eveniet porro. Rerum blanditiis perferendis totam, ea at omnis vel numquam exercitationem aut, natus minima, porro labore.
+        </q-card-section>
+      </q-card>
+    </q-dialog>
+  </div>
+</template>
       <div class="row justify-center marginToFotter">
         <div>
           <q-btn
@@ -161,7 +201,7 @@ export default {
           icon: "announcement",
           color: "primary"
         });
-        this.$router.push("/login");
+        this.dialog = true;
         this.resetForm();
       } else if (err.code == "user_exists") {
         this.$q.notify({
@@ -198,6 +238,8 @@ export default {
   },
   data() {
     return {
+      dialog: false,
+      maximizedToggle: true,
       mail: null,
       password: null,
       repassword: null,
