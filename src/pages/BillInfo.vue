@@ -5,7 +5,7 @@
         Informações da fatura
       </span>
       <!-- <div class="row fit"> -->
-    <q-card flat style="height:70vh;width:100vw; font-size:20px" class="q-pa-sm">
+    <q-card flat style="height:70vh;width:100vw; font-size:18px" class="q-pa-sm">
         <!-- <div class="row fit">
             <q-card-section class="infoLabel col-3">
               Emissor:
@@ -66,7 +66,7 @@
 
         <div class="infoTitle col-sm-3">Data de pagamento:</div>
         <div class="col-sm-2">
-          <q-input style="font-size:20px" filled v-model="bill.paydate">
+          <q-input style="font-size:16px" filled v-model="bill.paydate">
               <template v-slot:append>
                 <q-icon name="event" class="cursor-pointer">
                   <q-popup-proxy v-model="datePicker" @input="checkDatePicker(bill)" transition-show="scale" transition-hide="scale">
@@ -82,7 +82,9 @@
         <div class="infoTitle col-sm-3">Valor da conta:</div>
         <div class="col-sm-8">R${{ bill.price }}</div>
         <q-separator style="width:70vw; height:1.2px"/>
-
+        <div class="col-sm-2">
+        <q-btn to="/bills" class="q-mt-md gradientBtn">Voltar</q-btn>
+        </div>
       </div>
     </q-card>
     
@@ -171,7 +173,7 @@ export default {
 
 <style lang="scss" scoped>
 .infoTitle{
-  font-size: 25px;
+  font-size: 22px;
   height: 8vh;
 }
 </style>
