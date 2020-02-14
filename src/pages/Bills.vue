@@ -1,5 +1,8 @@
 <template>
   <q-page padding class="flex">
+    <span style="font-size:46px; color:#B6B6B7">
+        Suas faturas
+      </span>
     <q-card flat class="q-mt-md" style="opacity:0.9;height:70vh;width:100vw">
       <q-table ref="dataTable" title="Contas" :data="billList" :columns="columns" row-key="name">
         <template slot="body-cell-bank" slot-scope="col">
