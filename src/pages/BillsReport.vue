@@ -5,8 +5,12 @@
         <div class="fit row">
           <div class="col-6 col-xs-6 text-h4">Resumo da conta</div>
           <div class="col-md-6" align="right">
-            <q-btn style="font-size:15px;height:6vh; width:10vw;background: rgb(255,184,140);
-background: linear-gradient(90deg, rgba(255,184,140,1) 0%, rgba(229,101,144,1) 100%); color:whitesmoke">Extrato</q-btn> 
+            <q-btn style="font-size:15px;
+            height:6vh; 
+            width:10vw;
+            background: rgb(255,184,140);
+            background: linear-gradient(90deg, rgba(255,184,140,1) 0%, rgba(229,101,144,1) 100%); 
+            color:whitesmoke">Extrato</q-btn> 
           </div>
           <div class="col-md-3 col-xs-4 text-h6">
             Mês passado

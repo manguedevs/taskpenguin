@@ -14,9 +14,9 @@ const routes = [
         component: () => import('pages/Bills.vue'),
       },
       {
-        path: '/bills/settings',
-        name: 'bills-settings',
-        component: () => import('pages/BillsSettings.vue'),
+        path: '/bills/info/:id',
+        name: 'bills-info',
+        component: () => import('pages/BillInfo.vue'),
       },
       {
         path: '/bills/report',
