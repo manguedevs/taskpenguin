@@ -6,6 +6,7 @@
     <q-page-container>
       <router-view />
     </q-page-container>
+    <t-penguin/>
     <t-footer id="footer" />
   </q-layout>
 </template>
@@ -36,5 +37,7 @@ export default {
   font-size: 16px;
   z-index: 50;
   color: white;
+  margin-top: 11vh;
 }
+
 </style>

@@ -22,7 +22,6 @@
                     </div>
                 </div>
             </q-item>
-            <q-splitter horizontal style="width:100%"></q-splitter>
             <q-item v-ripple to="/" clickable>
                 <q-item-section avatar>
                 <q-icon name="fas fa-money-check-alt" />
