@@ -107,7 +107,7 @@
       
       <template>
   <div class="q-pa-md q-gutter-sm">
-    <q-btn label="Maximized" color="primary" @click="dialog = true" />
+    
 
     <q-dialog
       v-model="dialog"
@@ -120,12 +120,7 @@
         <q-bar>
           <q-space />
 
-          <q-btn dense flat icon="minimize" @click="maximizedToggle = false" :disable="!maximizedToggle">
-            <q-tooltip v-if="maximizedToggle" content-class="bg-white text-primary">Minimize</q-tooltip>
-          </q-btn>
-          <q-btn dense flat icon="crop_square" @click="maximizedToggle = true" :disable="maximizedToggle">
-            <q-tooltip v-if="!maximizedToggle" content-class="bg-white text-primary">Maximize</q-tooltip>
-          </q-btn>
+          
           <q-btn dense flat icon="close" v-close-popup>
             <q-tooltip content-class="bg-white text-primary">Close</q-tooltip>
           </q-btn>
