@@ -18,6 +18,11 @@ const routes = [
         name: 'bills-settings',
         component: () => import('pages/BillsSettings.vue'),
       },
+      {
+        path: '/bills/report',
+        name: 'bills-report',
+        component: () => import('pages/BillsReport.vue'),
+      }
     ]
   },
   {

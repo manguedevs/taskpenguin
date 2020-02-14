@@ -11,7 +11,7 @@
                         
                         <div class="col-12 text-center">
                             <span class="loginTitle drawerTitle" style="">
-                                <strong> TASK </strong>PENGUIN {{ color }}
+                                <strong> TASK</strong>PENGUIN {{ color }}
                             </span>
                         <br>
                         <q-avatar size="84px" color="teal-2">
@@ -48,13 +48,20 @@
                     </span> 
                 </q-item>
 
+                <q-item active-class="activeLink" class="row q-pt-md" style="font-size:18px; height:65px" v-ripple to="/bills/report" clickable>
+                    <span class="q-ml-md" >
+                        <q-icon class="q-mr-sm" name="fas fa-file-export" /> 
+                        Extrato
+                    </span> 
+                </q-item>
+
                 <q-item active-class="activeLink" class="row q-pt-md" style="font-size:18px; height:65px" v-ripple to="/account" clickable>
                     <span class="q-ml-md" >
                         <q-icon class="q-mr-sm" name="fas fa-user-cog" /> 
                         Dados cadastrais
                     </span> 
                 </q-item>
-                
+
             </q-list>
         </q-drawer>
     </div>
@@ -70,8 +77,9 @@ export default {
 <style lang="scss">
 .drawerTitle{
     font-size:22px;
-    background: linear-gradient(90deg, rgba(255,184,140,0.8) 0%, rgba(229,101,144,1) 100%);
+    background: linear-gradient(90deg, rgba(255,184,140,0.8) 30%, rgba(229,101,144,1) 75%);
     background-clip: text;
-  -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+
 }
 </style>

@@ -11,7 +11,6 @@
         <div class="col-8 col-lg-3">
           <q-input
             outlined
-            rounded
             name="mail"
             ref="mail"
             v-model="mail"
@@ -33,10 +32,7 @@
 
       <div class="row justify-center q-mt-md">
         <q-btn
-          outline
-          rounded
           dense
-          color="white"
           type="submit"
           id="continue"
           class="text-lowercase q-px-md"
@@ -158,7 +154,20 @@ export default {
   padding-top: 10px;
   font-size: 45px;
   letter-spacing: 2px;
+  background: linear-gradient(90deg, rgba(255,184,140,0.8) 30%, rgba(229,101,144,1) 55%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
+#continue{
+  background: rgb(255,184,140);
+  background: linear-gradient(90deg, rgba(255,184,140,1) 0%, rgba(229,101,144,1) 100%); 
+  color:whitesmoke;
+  width: 25vw;
+  height: 7vh;
+  font-size:16px
+}
+
 html,
 body {
   height: 100%;
@@ -168,7 +177,7 @@ body {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: left top;
-  background-image: url(https://www.itl.cat/pngfile/big/37-372787_hd-flat-design-wallpaper-full-hd.jpg);
+  background-image: url(https://trello-attachments.s3.amazonaws.com/5e3f2503250c2e1b50dcea6d/5e437ec048b1b627bbbd4cf1/39e47323c89cf58079250dcb8dc51867/maxresdefault.jpg);
 }
 .hiperlinks {
   font-size: 11px;
