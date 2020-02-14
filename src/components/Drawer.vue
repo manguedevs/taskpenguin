@@ -50,7 +50,7 @@
 
                 <q-item active-class="activeLink" class="row q-pt-md" style="font-size:18px; height:65px" v-ripple to="/bills/report" clickable>
                     <span class="q-ml-md" >
-                        <q-icon class="q-mr-sm" name="fas fa-file-export" /> 
+                        <q-icon style="" class="q-mr-sm" name="fas fa-file-export" /> 
                         Extrato
                     </span> 
                 </q-item>

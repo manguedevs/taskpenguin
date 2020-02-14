@@ -48,4 +48,13 @@ export default {
   border-radius: 2px;
 }
 
+.activeLink{
+  i{
+    background: rgb(255,184,140);
+    background: linear-gradient(90deg, rgba(255,184,140,1) 0%, rgba(248,161,141,1) 45%, rgba(229,101,144,1) 100%); 
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
 </style>
