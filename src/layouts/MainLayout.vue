@@ -57,4 +57,13 @@ export default {
   }
 }
 
+.gradientBtn{
+  font-size:15px;
+  height:6vh; 
+  width:10vw;
+  background: rgb(255,184,140);
+  background: linear-gradient(90deg, rgba(255,184,140,1) 0%, rgba(229,101,144,1) 100%); 
+  color:whitesmoke
+}
+
 </style>

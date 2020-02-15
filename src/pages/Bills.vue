@@ -16,7 +16,16 @@
 
         <template slot="body-cell-paydate" slot-scope="col">
           <q-td style="width:170px">
-            <span>{{col.row.paydate}}</span>
+            <span class="q-ml-lg">{{col.row.paydate}}</span>
+          </q-td>
+        </template>
+
+        <template slot="body-cell-actions" slot-scope="col">
+          <q-td style="width:60px">
+            <q-btn :to="`/bills/info/${col.row.id}`" flat round size="xs" class="bg-transparent">
+              <q-icon size="lg" color="blue-7" name="fas fa-info-circle"></q-icon>
+            </q-btn>
+
           </q-td>
         </template>
 
@@ -68,10 +77,16 @@ export default {
           field: "price",
           format: val => `R$ ${val}`,
           sortable: true
+        },
+        {
+          name: "actions",
+          align: "center",
+          label: "Ações"
         }
       ],
       billList: [
         {
+          id:"01",
           bank: { bname: "Banco do Brasil", blogo: "/statics/logo-bb.png" },
           bill_info: "Conta referente ao Banco do Brasil",
           expdate: "12/02/2020",
@@ -79,6 +94,7 @@ export default {
           price: 78.99
         },
         {
+          id:"02",
           bank: {
             bname: "Vivo",
             blogo:
@@ -90,6 +106,7 @@ export default {
           price: 99.33
         },
         {
+          id:"03",
           bank: { bname: "Unimed", blogo: "" },
           bill_info: "Conta plano de saúde Unimed",
           expdate: "09/02/2020",
