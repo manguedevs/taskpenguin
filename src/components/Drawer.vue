@@ -27,7 +27,7 @@
                     </div>
                 </q-item>
                 
-                <q-item active-class="activeLink" class="row q-mt-xl" style="font-size:18px; height:65px" v-ripple to="/home" clickable>
+                <q-item active-class="activeLink" class="row q-mt-xl q-pt-md" style="font-size:18px; height:65px; margin-top: 70px" v-ripple to="/home" clickable>
                     <span class="q-ml-md" >
                         <q-icon class="q-mr-sm" name="fas fa-chart-bar" /> 
                         Informações 
