@@ -55,6 +55,13 @@
                     </span> 
                 </q-item>
 
+                <q-item active-class="activeLink" class="row q-pt-md" style="font-size:18px; height:65px" v-ripple to="/faq" clickable>
+                    <span class="q-ml-md" >
+                        <q-icon class="q-mr-sm" name="fas fa-question-circle" /> 
+                        FAQ
+                    </span> 
+                </q-item>
+
             </q-list>
         </q-drawer>
     </div>
