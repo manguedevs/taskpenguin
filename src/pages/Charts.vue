@@ -1,6 +1,8 @@
 <template>
   <q-page padding class="flex">
-    <h1>GRÁFICOS VÃO AQUI :)</h1>
+    <span style="font-size:46px; color:#B6B6B7">
+        GRÁFICOS VÃO AQUI :)
+    </span>
   </q-page>
 </template>
 <script>
