@@ -27,38 +27,45 @@
                     </div>
                 </q-item>
                 
-                <q-item active-class="activeLink" class="row q-mt-xl" style="font-size:18px; height:65px" v-ripple to="/home" clickable>
+                <q-item active-class="activeLink" class="drawerItems row q-mt-xl"  v-ripple to="/home" clickable style="margin-top:9vh">
                     <span class="q-ml-md" >
                         <q-icon class="q-mr-sm" name="fas fa-chart-bar" /> 
                         Informações 
                     </span> 
                 </q-item>
 
-                <q-item exact-active-class="activeLink" active-class="default" class="row q-pt-md" style="font-size:18px; height:65px" v-ripple to="/bills" clickable>
+                <q-item exact-active-class="activeLink" active-class="default" class="drawerItems row q-pt-md"  v-ripple to="/bills" clickable>
                     <span class="q-ml-md" >
                         <q-icon class="q-mr-sm" name="fas fa-envelope" /> 
                         Lista de faturas 
                     </span> 
                 </q-item>
 
-                <q-item active-class="activeLink" class="row q-pt-md" style="font-size:18px; height:65px" v-ripple to="/bills/report" clickable>
+                <q-item active-class="activeLink" class="drawerItems row q-pt-md"  v-ripple to="/bills/report" clickable>
                     <span class="q-ml-md" >
                         <q-icon style="" class="q-mr-sm" name="fas fa-file-export" /> 
                         Extrato
                     </span> 
                 </q-item>
 
-                <q-item active-class="activeLink" class="row q-pt-md" style="font-size:18px; height:65px" v-ripple to="/account" clickable>
+                <q-item active-class="activeLink" class="drawerItems row q-pt-md"  v-ripple to="/account" clickable>
                     <span class="q-ml-md" >
                         <q-icon class="q-mr-sm" name="fas fa-user-cog" /> 
                         Dados cadastrais
                     </span> 
                 </q-item>
 
-                <q-item active-class="activeLink" class="row q-pt-md" style="font-size:18px; height:65px" v-ripple to="/faq" clickable>
+                <q-item active-class="activeLink" class="drawerItems row q-pt-md"  v-ripple to="/faq" clickable>
                     <span class="q-ml-md" >
                         <q-icon class="q-mr-sm" name="fas fa-question-circle" /> 
                         FAQ
+                    </span> 
+                </q-item>
+
+                <q-item active-class="activeLink" class="drawerItems absolute-bottom row q-pt-md"  v-ripple @click="logout" clickable>
+                    <span class="q-ml-md" >
+                        <q-icon class="q-mr-sm" name="fas fa-sign-out-alt" style="transform: rotate(180deg)"/> 
+                        Sign out
                     </span> 
                 </q-item>
 
@@ -70,6 +77,11 @@
 <script>
 
 export default {
+    methods:{
+        logout(){
+            this.$auth.logout();
+        },
+    }
 
 }
 </script>
@@ -81,5 +93,10 @@ export default {
     background-clip: text;
     -webkit-text-fill-color: transparent;
 
+}
+
+.drawerItems{
+    font-size:15px; 
+    height:50px
 }
 </style>
