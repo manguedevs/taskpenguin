@@ -9,7 +9,10 @@
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "echo \"No test specified\" && exit 0",
+    "deploy": "surge ./dist/spa",
+    "build": "quasar build && cp dist/index.html dist/200.html && echo * >> ./dist/CORS && echo taskpenguin.surge.sh >> ./dist/CNAME",
+    "buildWin": "quasar build && copy dist\\spa\\index.html dist\\spa\\200.html && echo * >> .\\dist\\spa\\CORS && echo taskpenguin.surge.sh >> .\\dist\\spa\\CNAME"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
