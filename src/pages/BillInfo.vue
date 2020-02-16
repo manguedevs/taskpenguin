@@ -70,7 +70,7 @@
               <template v-slot:append>
                 <q-icon name="event" class="cursor-pointer">
                   <q-popup-proxy v-model="datePicker" @input="checkDatePicker(bill)" transition-show="scale" transition-hide="scale">
-                      <q-date style="overflow:hidden" mask="DD/MM/YYYY" v-model="newPaymentDate">
+                      <q-date :locale="dateBR" style="overflow:hidden" mask="DD/MM/YYYY" v-model="newPaymentDate">
                       </q-date>
                   </q-popup-proxy>
                 </q-icon>
@@ -129,6 +129,13 @@ export default {
         paydate: "",
         price: 0
 
+      },
+      dateBR: {
+        days: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
+        daysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
+        months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+        monthsShort: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+        firstDayOfWeek: 1
       },
       datePicker:false,
       newPaymentDate:"",
