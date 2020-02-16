@@ -11,7 +11,7 @@
         </div>
     
         <q-card v-if="chatBox" @click="scroll" >
-            <div id="c" class="chat fixed-bottom-right q-px-md">
+            <div class="chat fixed-bottom-right q-px-md" :class="[chatBox ? 'chatOpen' : 'chatClose']">
                 <q-scroll-area ref="chatScroll" style="height:inherit">
                 <q-chat-message
                     v-for="(message, index) in messages"
@@ -55,9 +55,6 @@ export default {
         openChat(){
             this.chatBox = !this.chatBox;
             this.tutorialCompleted=false;
-            document.getElementsByClassName("chat")[0].id = chatOpen;
-            abc.id = "chatOpen"
-            console.log(abc);
         },
         firstChat() {
             // {name:`[BOT] ${this.botName}`, text:[`Olá, eu sou o ${this.botName}, , como posso ajudá-lo hoje?`], opts:[{msg:"Botão", action:this.funcao}]}
@@ -121,11 +118,26 @@ export default {
     overflow: hidden;
 }
 
-#chatOpen{
-    animation:teste 1.3s;
+.chatOpen{
+    animation: open 1.2s;
 }
 
-@keyframes teste {
+.chatClose{
+    animation: open 1.2s;
+    animation-direction: reverse
+}
+
+@keyframes open {
+    0%{
+        height: 0vh;
+    }
+    100%{
+        height: 70vh;
+    }
+    
+}
+
+@keyframes open {
     0%{
         height: 0vh;
     }
