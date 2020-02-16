@@ -92,7 +92,6 @@
 
       <div class="row justify-center q-mt-md">
         <q-btn
-          @click="dialog=true"
           dense
           :disable="!registerDataValidatedStep1"
           type="submit"
