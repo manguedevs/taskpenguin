@@ -188,10 +188,7 @@ export default {
       tutorial4: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus, ratione eum minus fuga',
       
       userdata: false,
-      person:{
-      name:"" , cpf:"", sex:"" , age:"", mail:"", country:"", state:"", 
-      city:"", postalcode:"", ddd:"" ,cellphonenumber:"", userpic:"", identitypic:""
-      }, 
+       
       columns: [
         {
           name: "bank",
@@ -299,11 +296,7 @@ export default {
       })
       // Send request to backend
     },
-    clear(){
-      this.person.name="" , this.person.cpf="", this.person.sex="" , this.person.age="", this.person.mail="",
-      this.person.country="", this.person.state="", this.person.city="", this.person.postalcode="",
-      this.person.ddd="" ,this.person.cellphonenumber="", this.person.userpic="", this.person.identitypic=""
-    }
+    
   }
 };
 </script>
