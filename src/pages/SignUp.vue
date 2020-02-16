@@ -6,7 +6,6 @@
           <strong>TASK</strong>PENGUIN
         </span>
       </div>
-
       <div class="row justify-center inputToHeader">
         <div class="col-8 col-lg-3">
           <q-input
@@ -29,7 +28,7 @@
           </q-input>
         </div>
       </div>
-
+      
       <div class="row justify-center q-mt-md">
         <div class="col-8 col-lg-3">
           <q-input
@@ -89,7 +88,7 @@
       </div>
 
       <div class="row justify-center q-mt-md">
-        <q-btn
+        <q-btn @click ="dialog=true"
           dense
           type="submit"
           id="register"
@@ -101,7 +100,243 @@
         <a href="/login" class="q-mr-sm">Already have Login?</a> |
         <a class="q-ml-sm" href="/login/password-recovery">Forgot password?</a>
       </div>
+      
+      <!-- Inicio register 2 -->
+      <template>
 
+  <div>
+    <form id="login" @submit="signUp">
+
+    <q-dialog
+      v-model="dialog"
+      persistent
+      :maximized="maximizedToggle"
+      transition-show="slide-down"
+      transition-hide="slide-up"
+    >
+      <q-card id="register2" class="text-white">
+        <q-bar>
+          <q-space />
+          <q-btn dense flat icon="close" v-close-popup>
+            <q-tooltip content-class="bg-white text-primary">Close</q-tooltip>
+          </q-btn>
+        </q-bar>
+
+        <q-card-section class="q-pt-none">
+        
+      <div class="text-center text-white">
+        <span class="loginTitle">
+          <strong>TASK</strong>PENGUIN
+        </span>
+      </div>
+        <div class="row justify-center q-mt-md q-gutter-md">
+          
+            <div class="col-8">
+
+          <q-input
+            rounded
+            filled
+            name="name"
+            ref="name"
+            v-model="person.name"
+            label="Nome completo (Sem abreviações)*"
+            class="cursor-pointer" 
+            color="white"
+            
+            dense
+            :rules="[rules.required]"
+          >
+          <template v-slot:prepend>
+              <q-icon name="person" />
+            </template>
+          
+          </q-input>      
+
+            </div>
+        </div>
+          <div class="row justify-center q-mt-md q-gutter-md">
+            <div class="col-5">
+
+          <q-input
+            filled
+            name="cpf"
+            ref="cpf"
+            v-model="person.cpf"
+            label="CPF*"
+            class="cursor-pointer" 
+            color="white"
+            dense
+            :rules="[rules.required]"
+          >
+           <template v-slot:prepend>
+              <q-icon name class = "fas fa-id-card"></q-icon>
+            </template>
+          </q-input>
+
+            </div>
+              <div class="col-5">
+
+                <q-input
+                  filled
+                  name="age"
+                  ref="age"
+                  v-model="person.age"
+                  label="Data de nascimento"
+                  class="cursor-pointer"
+                  color="white"
+                  dense
+                  :rules="[rules.required]"
+                >
+                <template v-slot:prepend>
+              <q-icon name class = "fas fa-calendar-day"></q-icon>
+            </template>
+                </q-input>      
+            </div>
+
+            
+          </div>
+
+        <div class="row justify-center q-mt-md q-gutter-md">
+            <div class="col-5">
+                <q-input
+                  filled
+                  name="sex"
+                  ref="sex"
+                  v-model="person.sexo"
+                  label="Sexo "
+                  class="cursor-pointer"
+                  color="white" 
+                  dense
+                  :rules="[rules.required]"
+                >
+                <template v-slot:prepend>
+              <q-icon name class = "fas fa-calendar-day"></q-icon>
+            </template>
+                </q-input>      
+            </div>
+
+             <div class="col-5">
+
+                <q-input
+                  filled
+                  name="cep"
+                  ref="cep"
+                  v-model="person.cep"
+                  label="CEP"
+                  class="cursor-pointer"
+                  color="white"
+                  dense
+                  :rules="[rules.required]"
+                >
+                <template v-slot:prepend>
+              <q-icon name class = "fas fa-calendar-day"></q-icon>
+            </template>
+                </q-input>      
+            </div>
+        </div>
+
+        <div class="row justify-center q-mt-md q-gutter-md">
+            <div class="col-3">
+                <q-input
+                  filled
+                  name="country"
+                  ref="country"
+                  v-model="person.age"
+                  label="País"
+                  class="cursor-pointer"
+                  color="white"
+                  dense
+                  :rules="[rules.required]"
+                >
+                <template v-slot:prepend>
+              <q-icon name class = "fas fa-calendar-day"></q-icon>
+            </template>
+                </q-input>      
+            </div>
+
+             <div class="col-3">
+                <q-input
+                  filled
+                  name="state"
+                  ref="state"
+                  v-model="person.age"
+                  label="Estado"
+                  class="cursor-pointer"
+                  color="white"
+                  dense
+                  :rules="[rules.required]"
+                >
+                <template v-slot:prepend>
+              <q-icon name class = "fas fa-calendar-day"></q-icon>
+            </template>
+                </q-input>      
+            </div>
+            <div class="col-3">
+                <q-input
+                  filled
+                  name="city"
+                  ref="city"
+                  v-model="person.age"
+                  label="Cidade"
+                  class="cursor-pointer"
+                  color="white"
+                  dense
+                  :rules="[rules.required]"
+                >
+                <template v-slot:prepend>
+              <q-icon name class = "fas fa-calendar-day"></q-icon>
+            </template>
+                </q-input>      
+            </div>
+        </div>
+        <div class="row justify-center q-mt-md q-gutter-md">
+            <div class="col-4">
+                <q-input
+                  filled
+                  name="ddd"
+                  ref="ddd"
+                  v-model="person.ddd"
+                  label="DDD"
+                  class="cursor-pointer"
+                  color="white"
+                  dense
+                  :rules="[rules.required]"
+                >
+                <template v-slot:prepend>
+              <q-icon name class = "fas fa-calendar-day"></q-icon>
+            </template>
+                </q-input>      
+            </div>
+
+             <div class="col-4">
+
+                <q-input
+                  filled
+                  name="cellphone"
+                  ref="cellphone"
+                  v-model="person.cellphonenumber"
+                  label="Número de telefone"
+                  class="cursor-pointer"
+                  color="white"
+                  dense
+                  :rules="[rules.required]"
+                >
+                <template v-slot:prepend>
+              <q-icon name class = "fas fa-calendar-day"></q-icon>
+            </template>
+                </q-input>      
+            </div>
+    
+        </div>    
+          
+        </q-card-section>
+      </q-card>
+    </q-dialog>
+    </form>
+  </div>
+  
+</template>
+<!-- Fim register 2 -->
       <div class="row justify-center marginToFotter">
         <div>
           <q-btn
@@ -149,6 +384,12 @@
 <script>
 export default {
   methods: {
+
+    clear(){
+      this.person.name="" , this.person.cpf="", this.person.sex="" , this.person.age="", this.person.mail="",
+      this.person.country="", this.person.state="", this.person.city="", this.person.postalcode="",
+      this.person.ddd="" ,this.person.cellphonenumber="", this.person.userpic="", this.person.identitypic=""
+    },
     resetForm() {
       this.mail = "";
       this.password = "";
@@ -161,7 +402,7 @@ export default {
           icon: "announcement",
           color: "primary"
         });
-        this.$router.push("/login");
+        this.dialog = true;
         this.resetForm();
       } else if (err.code == "user_exists") {
         this.$q.notify({
@@ -198,6 +439,12 @@ export default {
   },
   data() {
     return {
+      person:{
+      name:"" , cpf:"", sex:"" , age:"", mail:"", country:"", state:"", 
+      city:"", postalcode:"", ddd:"" ,cellphonenumber:"", userpic:"", identitypic:""
+      },
+      dialog: false,
+      maximizedToggle: true,
       mail: null,
       password: null,
       repassword: null,
@@ -208,6 +455,7 @@ export default {
         passwordMatches: v => v === this.password || "As senhas não conferem.",
         emailMatch: () => "The email s and password you entered don't match"
       }
+
     };
   }
 };
@@ -223,6 +471,11 @@ export default {
 
 .marginToFotter {
   margin-top: 110px;
+}
+
+#register2{
+  color:black;
+  background-image : url(https://trello-attachments.s3.amazonaws.com/5e3f2503250c2e1b50dcea6d/5e437ec048b1b627bbbd4cf1/01047d2be1c773f67193b7ec7c3949da/71705888-daf8-4cfc-83e8-7d05bcfe431b_rw_1920.jpg)
 }
 
 .loginTitle {
