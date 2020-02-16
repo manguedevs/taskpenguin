@@ -2,9 +2,7 @@
   <div>
     <form id="login" @submit="signUp">
       <div class="text-center text-white headerToTop">
-        <span class="loginTitle">
-          <strong>TASK</strong>PENGUIN
-        </span>
+        <span class="loginTitle"> <strong>TASK</strong>PENGUIN </span>
       </div>
       <div class="row justify-center inputToHeader">
         <div class="col-8 col-lg-3">
@@ -92,13 +90,13 @@
 
       <div class="row justify-center q-mt-md">
         <q-btn
-          @click="dialog=true"
           dense
           :disable="!registerDataValidatedStep1"
           type="submit"
           id="register"
           class="text-lowercase q-px-md"
-        >Registrar</q-btn>
+          >Registrar</q-btn
+        >
       </div>
 
       <div class="row justify-center q-mt-md hiperlinks text-white">
@@ -124,7 +122,9 @@
                       <strong>TASK</strong>PENGUIN
                     </span>
                     <br />
-                    <span class="loginTitle" style="font-size: 17px">Só mais um passo...</span>
+                    <span class="loginTitle" style="font-size: 17px"
+                      >Só mais um passo...</span
+                    >
                   </div>
                   <div class="row justify-center q-mt-md q-gutter-md">
                     <div class="col-3">
@@ -249,17 +249,19 @@
                         type="submit"
                         id="register"
                         class="text-lowercase q-px-md full-width"
-                      >Cancelar</q-btn>
+                        >Cancelar</q-btn
+                      >
                     </div>
                     <div class="col-6">
                       <q-btn
                         :disable="!registerDataValidatedStep2"
-                        @click="dialog=true"
+                        @click="dialog = true"
                         dense
                         type="submit"
                         id="register"
                         class="text-lowercase q-px-md full-width"
-                      >Registrar</q-btn>
+                        >Registrar</q-btn
+                      >
                     </div>
                   </div>
                 </q-card-section>
@@ -338,7 +340,7 @@ export default {
       } else if (err.code == "user_exists") {
         this.$q.notify({
           message: "Incorrect user or passoword",
-          icon: "announcement", 
+          icon: "announcement",
           color: "primary"
         });
       } else {
@@ -441,5 +443,3 @@ a:link {
   color: white;
 }
 </style>
-
-

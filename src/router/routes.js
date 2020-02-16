@@ -27,6 +27,11 @@ const routes = [
         path: '/faq',
         name: 'faq',
         component: () => import('pages/Faq.vue'),
+      },
+      {
+        path: '/account',
+        name: 'account',
+        component: () => import('pages/Account.vue'),
       }
     ]
   },
