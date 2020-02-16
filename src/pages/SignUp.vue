@@ -206,10 +206,10 @@
                     <div class="col-1">
                       <q-input
                         outlined
-                        name="ddd"
-                        ref="ddd"
+                        name="phoneArea"
+                        ref="phoneArea"
                         @keyup="validateRegisterDataStep2"
-                        v-model="person.ddd"
+                        v-model="person.phoneArea"
                         label="DDD"
                         class="cursor-pointer"
                         color="white"
@@ -305,7 +305,7 @@ export default {
         this.person.name &&
         this.person.cpf &&
         this.person.cnpj &&
-        this.person.ddd &&
+        this.person.phoneArea &&
         this.person.phone
       ) {
         this.registerDataValidatedStep2 = true;
@@ -317,7 +317,7 @@ export default {
       this.person.name = "";
       this.person.cpf = "";
       this.person.cnpj = "";
-      this.person.ddd = "";
+      this.person.phoneArea = "";
       this.person.phone = "";
     },
     resetForm() {
