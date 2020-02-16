@@ -1,16 +1,17 @@
 <template>
 
     <div class="penguin">
-        <div class="penguin fixed-top-right cursor-pointer">
-            <q-avatar @click="chatBox = !chatBox" style="width:130px;height:65px;" square>
-                <img src="https://trello-attachments.s3.amazonaws.com/5e449fdbcf03d28e8517290e/1024x532/0c78fcd0276a77363f1f63fe8d450e7d/Penguinn.png">
+        <div class="penguin fixed-bottom-right cursor-pointer">
+            <q-avatar @click="openChat" square class="q-ma-xs" style="height:70px; width:80px;animation: pulse 5s infinite">
+                <img src="https://trello-attachments.s3.amazonaws.com/5e449fdbcf03d28e8517290e/1024x532/0c78fcd0276a77363f1f63fe8d450e7d/Penguinn.png" style="width:160px;height:80px">
+                <q-skeleton v-if="tutorialCompleted" size="60px" type="circle" animation="fade" style="z-index:-1;background: rgb(255,184,140);
+    background: radial-gradient(circle, rgba(255,184,140,1) 50%, rgba(229,101,144,1) 75%);margin-top:-90px "/>
+                
             </q-avatar>
         </div>
-
-        <div v-if="chatBox" @click="scroll">
-            <div
-                class="chat fixed-top-right q-px-md q-pt-sm"
-            >
+    
+        <q-card v-if="chatBox" @click="scroll" >
+            <div class="chat fixed-bottom-right q-px-md" :class="[chatBox ? 'chatOpen' : 'chatClose']">
                 <q-scroll-area ref="chatScroll" style="height:inherit">
                 <q-chat-message
                     v-for="(message, index) in messages"
@@ -21,14 +22,14 @@
                     :bg-color="message.name.includes('[BOT]') ? 'grey-6' : 'grey-12'"
                 >
                     <div v-if="messageOpts(message) > 0" class="fit row">
-                    <q-btn style="" class="q-mt-sm col-md-6" align="right" v-for="(options, index) in message.opts" :key="index" @click="options.action">
+                    <q-btn style="width:12vw;" class="gradientBtn q-mt-sm q-ml-sm col-md-6" align="right" v-for="(options, index) in message.opts" :key="index" @click="options.action">
                         {{ options.msg }}
                     </q-btn>
                     </div>
                 </q-chat-message>
                 </q-scroll-area>    
             </div>
-        </div>
+        </q-card>
     </div>
 </template>
 
@@ -46,10 +47,15 @@ export default {
             //     {name:"User",text:["Bo dia"]},
             //     {name:"[Bot] ALGUMNOME",text:["Salve salve"]}]
             messages:[],
+            tutorialCompleted:true,
             
         }
     },
     methods:{
+        openChat(){
+            this.chatBox = !this.chatBox;
+            this.tutorialCompleted=false;
+        },
         firstChat() {
             // {name:`[BOT] ${this.botName}`, text:[`Olá, eu sou o ${this.botName}, , como posso ajudá-lo hoje?`], opts:[{msg:"Botão", action:this.funcao}]}
             
@@ -108,9 +114,36 @@ export default {
     height:70vh;
     max-width:35vw;
     width:30vw;
-    margin-top: 9vh; 
     background-color:#CDE1E0;
     overflow: hidden;
 }
 
+.chatOpen{
+    animation: open 1.2s;
+}
+
+.chatClose{
+    animation: open 1.2s;
+    animation-direction: reverse
+}
+
+@keyframes open {
+    0%{
+        height: 0vh;
+    }
+    100%{
+        height: 70vh;
+    }
+    
+}
+
+@keyframes open {
+    0%{
+        height: 0vh;
+    }
+    100%{
+        height: 70vh;
+    }
+    
+}
 </style>

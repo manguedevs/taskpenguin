@@ -6,7 +6,7 @@
     <q-page-container>
       <router-view />
     </q-page-container>
-    <!-- <t-penguin/> -->
+    <t-penguin/>
     <t-footer id="footer" />
   </q-layout>
 </template>
