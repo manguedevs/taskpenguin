@@ -2,8 +2,8 @@
 
     <div class="penguin">
         <div class="penguin fixed-bottom-right cursor-pointer">
-            <q-avatar @click="openChat" square class="q-ma-xs" style="height:70px; width:80px;animation: pulse 5s infinite">
-                <img src="https://trello-attachments.s3.amazonaws.com/5e449fdbcf03d28e8517290e/1024x532/0c78fcd0276a77363f1f63fe8d450e7d/Penguinn.png" style="width:160px;height:80px">
+            <q-avatar @click="openChat" square class="q-ma-xs" style="width:160px;height:80px">
+                <img class="q-ml-xs" src="https://trello-attachments.s3.amazonaws.com/5e449fdbcf03d28e8517290e/1024x532/0c78fcd0276a77363f1f63fe8d450e7d/Penguinn.png" style="width:160px;height:80px">
                 <q-skeleton v-if="tutorialCompleted" size="60px" type="circle" animation="fade" style="z-index:-1;background: rgb(255,184,140);
     background: radial-gradient(circle, rgba(255,184,140,1) 50%, rgba(229,101,144,1) 75%);margin-top:-90px "/>
                 
@@ -125,16 +125,6 @@ export default {
 .chatClose{
     animation: open 1.2s;
     animation-direction: reverse
-}
-
-@keyframes open {
-    0%{
-        height: 0vh;
-    }
-    100%{
-        height: 70vh;
-    }
-    
 }
 
 @keyframes open {
