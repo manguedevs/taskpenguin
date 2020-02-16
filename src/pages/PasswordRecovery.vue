@@ -40,8 +40,8 @@
       </div>
 
       <div class="row justify-center q-mt-md hiperlinks text-white">
-        <a href="/login" class="q-mr-sm">Already have Login?</a> |
-        <a class="q-ml-sm" href="/login/signup">Register</a>
+        <a href="/login" class="q-mr-sm">Já tem uma conta?</a> |
+      <a class="q-ml-sm" href="/login/signup">Registrar</a>
       </div>
 
       <div class="row justify-center marginToFotter">

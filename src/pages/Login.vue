@@ -14,7 +14,7 @@
           name="user"
           ref="user"
           v-model="user"
-          placeholder="Name"
+          placeholder="Email"
           class="cursor-pointer user"
           color="white"
           dark
@@ -38,7 +38,7 @@
           ref="pass"
           v-model="password"
           :type="isPwd ? 'password' : 'text'"
-          placeholder="Password"
+          placeholder="Senha"
           class="cursor-pointer"
           color="white"
           dark
@@ -69,8 +69,8 @@
     </div>
 
     <div class="row justify-center q-mt-md hiperlinks text-white">
-      <a href="/login/password-recovery" class="q-mr-sm">Forgot password?</a> |
-      <a class="q-ml-sm" href="/login/signup">Register</a>
+      <a href="/login/password-recovery" class="q-mr-sm">Esqueceu a senha?</a> |
+      <a class="q-ml-sm" href="/login/signup">Registrar</a>
     </div>
 
     <div class="row justify-center marginToFotter">
