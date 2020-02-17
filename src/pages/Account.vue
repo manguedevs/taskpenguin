@@ -14,19 +14,24 @@
                             <img src="https://static.thenounproject.com/png/48550-200.png" >
                         </q-avatar>
 
-                    <!-- <div class="row"> -->
-                        <div class="col-2 q-mr-sm">
-                            <q-input readonly filled v-model="person.a" label="Nome"/>
+                        <div class="column">
+                            <div class="col-2 q-mb-md q-ml-sm">
+                                <q-input readonly filled v-model="person.name" label="Nome"/>
+                            </div>
+
+                            <div class="col-2 q-mb-md q-ml-sm">
+                                <q-input readonly filled v-model="person.lastName" label="Sobrenome"/>
+                            </div>
+                            
+                            <div class="col-2 q-mb-md q-ml-sm">
+                                <q-input readonly filled v-model="person.cpf" label="CPF"/>
+                            </div>
+                            
+                            <div class="col-2 q-mb-md q-ml-sm">
+                                <q-input readonly filled v-model="person.phone" label="Telefone"/>
+                            </div>
                         </div>
-                        <div class="col-2 q-mr-sm">
-                            <q-input readonly filled v-model="person.a" label="Nome"/>
-                        </div>
-                        <div class="col-2 q-mr-sm">
-                            <q-input readonly filled v-model="person.a" label="Nome"/>
-                        </div>
-                        <div class="col-2 q-mr-sm">
-                            <q-input readonly filled v-model="person.a" label="Nome"/>
-                        </div>
+                        
                     </div>
                 </q-card-section>
             </q-card>
@@ -50,7 +55,13 @@
 export default {
     data(){
         return{
-            person:{a:"Jj"}
+            person:{
+                name:"Jorginho",
+                lastName:"Gameplays",
+                cpf:"12345678950",
+                phoneArea:"48",
+                phone:"999999999"
+            }
         }
     }
 }
