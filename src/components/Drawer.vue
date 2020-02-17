@@ -11,7 +11,7 @@
             <div class="col-12 text-center">
               <span class="loginTitle drawerTitle" style>
                 <strong>TASK</strong>
-                PENGUIN {{ color }}
+                PENGUIN
               </span>
               <br />
               <q-avatar size="84px" color="teal-2">
@@ -27,10 +27,11 @@
         </q-item>
 
         <q-item
-          active-class="activeLink"
+          exact-active-class="activeLink"
+          active-class="default"
           class="drawerItems row q-mt-xl q-pt-md"
           v-ripple
-          to="/home"
+          to="/"
           style=" margin-top: 70px"
           clickable
         >
