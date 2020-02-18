@@ -74,6 +74,13 @@
       </q-card>
     </q-expansion-item>
 
+
+    <!-- PAGAMENTO -->
+
+    <!-- 
+      sb-47x143f1075155@personal.example.com 
+      4!0w;/(A
+     -->
     <q-expansion-item
       class="q-mt-md"
       header-style="height:10vh"
@@ -83,10 +90,15 @@
       <q-separator></q-separator>
       <q-card flat style="color:black">
         <q-card-section>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
-          possimus atque at commodi assumenda enim, voluptate voluptatum et quia
-          autem animi quibusdam, qui deserunt, quas quidem officiis maxime
-          quaerat modi!
+          
+          <div v-if="!paid">
+            <h5 class="no-margin">A pagar: R$ {{ bill.price }}</h5>
+            <div ref="paypal"></div>
+          </div>
+
+          <div v-if="paid">
+            <h5>Pagamento de R${{ bill.price }} efetuado em {{ bill.paymentDate }} </h5>
+          </div>
         </q-card-section>
       </q-card>
     </q-expansion-item>
@@ -95,6 +107,13 @@
 
 <script>
 export default {
+  mounted(){
+		const script = document.createElement("script");
+    script.src =
+      "https://www.paypal.com/sdk/js?currency=BRL&client-id=Ae-C7dSMMdJJIMyCHas0JqXYQZODsA5AopXeWrJCnR8WNIP6my7g5lpcUMUmHCaZELTGCV2LxlYDsPiK";
+    script.addEventListener("load", this.setLoaded);
+    document.body.appendChild(script);
+  },
   data() {
     return {
       person: {
@@ -105,8 +124,51 @@ export default {
         phoneArea: "48",
         phone: "999999999",
         cnpj: "13012040102"
-      }
-    };
+      },
+      paid: false,
+      loaded: false,
+      bill: {
+        price:123.45,
+        info:"Pagamento referente ao plano do TaskPenguin",
+        paymentDate:""
+      },
+    }
+  },
+  methods: {
+    setLoaded(){
+      this.loaded = true;
+      window.paypal
+        .Buttons({
+          createOrder: (data, actions) => {
+            return actions.order.create({
+              purchase_units: [
+                {
+                  description: this.bill.info,
+                  amount: {
+                    currency_code: "BRL",
+                    value: this.bill.price
+                  }
+                }
+              ]
+            });
+          },
+          onApprove: async (data, actions) => {
+            const order = await actions.order.capture();
+            this.data;
+            this.paid = true;
+
+            let dateToday = new Date();
+            let day = String(dateToday.getDate()).padStart(2, '0');
+            let month = String(dateToday.getMonth() + 1).padStart(2, '0');
+            let year = dateToday.getFullYear();
+            this.bill.paymentDate = day + '/' + month + '/' + year;
+          },
+          onError: err => {
+            console.log(err);
+          }
+        })
+        .render(this.$refs.paypal);
+    }
   }
 };
 </script>
