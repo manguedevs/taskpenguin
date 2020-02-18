@@ -13,7 +13,7 @@
                         <q-avatar style="height:200px; width:200px">
                             <img src="https://static.thenounproject.com/png/48550-200.png" >
                         </q-avatar>
-
+                        
                     <!-- <div class="row"> -->
                         <div class="col-2 q-mr-sm">
                             <q-input readonly filled v-model="person.a" label="Nome"/>

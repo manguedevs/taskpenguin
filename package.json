@@ -21,7 +21,8 @@
     "chart.js": "^2.9.3",
     "quasar": "^1.0.0",
     "vue-chartjs": "^3.5.0",
-    "vue-i18n": "^8.0.0"
+    "vue-i18n": "^8.0.0",
+    "vue-paypal-checkout": "^3.2.0"
   },
   "devDependencies": {
     "@quasar/app": "^1.0.0",
