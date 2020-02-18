@@ -48,7 +48,7 @@ export default {
                 {question:"Qual a multa por atraso de pagamentos?", answer:"A multa pode variar dependendo da instituição que está cobrando a tarifa, poderá ser uma multa ou aplicar um juros."},
                 {question:"Como acesso a conta pelo computador ?", answer:"Após se registrar no aplicativo, sua conta vai estar liberada para acessar pelo site."},
                 {question:"Como altero o e-mail cadastrado?", answer:"Não será possível fazer a substituição do email cadastrado, o primeiro que for inserido, será permanente."},
-                {question:"Como recupero minha senha?", answer:"Através da opção "esqueci minha senha", será enviado um email para o email cadastrado, com dados para a substituição da senha do usuário."},
+                {question:"Como recupero minha senha?", answer:'Através da opção "esqueci minha senha", será enviado um email para o email cadastrado, com dados para a substituição da senha do usuário.'},
                 {question:"Posso colocar uma senha de proteção para acessar o aplicativo?", answer:"Não, o aplicativo não tem a opção de por um PIN de segurança, somente a senha da conta do usuário."},
                 {question:"Como alterar o endereço da minha conta?", answer:"Na configuração de conta do usuário, terá a opção de editar o endereço da conta."},
                 {question:"Posso solicitar o aplicativo para me notificar com antecêdencia que a tarifa irá vencer?", answer:"Sim, pedindo pelo chat ao mordomo, ele sempre irá notificar você com alguns dias de antecedência ao vencimento da tarifa."}
