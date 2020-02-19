@@ -63,7 +63,6 @@ export default {
           label: "Vencimento",
           field: "expdate",
           sortable: true
-          // sort: (a, b) => parseInt(a, 10) - parseInt(b, 10)
         },
         {
           name: "paydate",
@@ -71,7 +70,6 @@ export default {
           label: "Data de pagamento",
           field: "paydate",
           sortable: true,
-          // sort: (a, b) => parseInt(a, 10) - parseInt(b, 10)
         },
         {
           name: "price",

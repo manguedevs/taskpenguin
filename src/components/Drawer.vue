@@ -10,8 +10,7 @@
           <div class="row" style="margin-left:-0.5vw; height:100px">
             <div class="col-12 text-center">
               <span class="loginTitle drawerTitle" style>
-                <strong>TASK</strong>
-                PENGUIN {{ color }}
+                <strong>TASK</strong>PENGUIN
               </span>
               <br />
               <q-avatar size="84px" color="teal-2">
