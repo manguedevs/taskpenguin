@@ -25,7 +25,7 @@
           </div>
         </q-item>
 
-        <q-item
+        <!-- <q-item
           active-class="activeLink"
           class="drawerItems row q-mt-xl q-pt-md"
           v-ripple
@@ -36,14 +36,14 @@
           <span class="q-ml-md">
             <q-icon class="q-mr-sm" name="fas fa-chart-bar" />Informações
           </span>
-        </q-item>
+        </q-item> -->
 
         <q-item
-          exact-active-class="activeLink"
-          active-class="default"
-          class="drawerItems row q-pt-md"
+          active-class="activeLink"
+          class="drawerItems row q-mt-xl q-pt-md"
           v-ripple
           to="/bills"
+          style=" margin-top: 70px"
           clickable
         >
           <span class="q-ml-md">

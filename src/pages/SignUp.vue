@@ -97,6 +97,7 @@
           type="submit"
           id="register"
           class="text-lowercase q-px-md"
+          @click="dialog = true"
         >Registrar</q-btn>
       </div>
 
@@ -253,7 +254,7 @@
                     <div class="col-6">
                       <q-btn
                         :disable="!registerDataValidatedStep2"
-                        @click="dialog=true"
+                        @click="signUp"
                         dense
                         type="submit"
                         id="register"
@@ -271,12 +272,17 @@
   </div>
 </template>
 <script>
+import api from "../resources";
+
 export default {
   data() {
     return {
       registerDataValidatedStep1: false,
       registerDataValidatedStep2: false,
-      person: {},
+      person: {
+        email: this.mail,
+        password: this.password
+      },
       dialog: false,
       maximizedToggle: true,
       mail: null,
@@ -348,7 +354,7 @@ export default {
         });
       }
     },
-    signUp(e) {
+    async signUp(e) {
       this.$refs.mail.validate();
       this.$refs.pass.validate();
       this.$refs.repass.validate();
@@ -361,6 +367,7 @@ export default {
       ) {
         return;
       }
+      api.person.create(this.person);
       this.$auth.signUp(this.mail, this.password, (err, resp) => {
         this.showNotification(err);
         if (!err) setTimeout(() => this.$router.push("login"), 1000);

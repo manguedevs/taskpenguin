@@ -106,6 +106,8 @@
 </template>
 
 <script>
+import api from "../resources";
+
 export default {
   mounted(){
 		const script = document.createElement("script");
@@ -116,6 +118,7 @@ export default {
   },
   data() {
     return {
+      user: this.$auth.user,
       person: {
         email: "Jorginho@jorge.com",
         name: "Jorginho",
@@ -135,6 +138,9 @@ export default {
     }
   },
   methods: {
+    getPersonData() {
+      this.person = api.person.getByEmail(this.user.name);
+    },
     setLoaded(){
       this.loaded = true;
       window.paypal
