@@ -94,7 +94,6 @@
         <q-btn
           dense
           :disable="!registerDataValidatedStep1"
-          type="submit"
           id="register"
           class="text-lowercase q-px-md"
           @click="dialog = true"
@@ -109,7 +108,7 @@
       <!-- Inicio register 2 -->
       <template>
         <div>
-          <form id="login" @submit="signUp">
+          <form id="login">
             <q-dialog
               v-model="dialog"
               persistent
@@ -367,11 +366,11 @@ export default {
       ) {
         return;
       }
-      api.person.create(this.person);
-      this.$auth.signUp(this.mail, this.password, (err, resp) => {
-        this.showNotification(err);
-        if (!err) setTimeout(() => this.$router.push("login"), 1000);
-      });
+        api.person.create(this.person);
+        this.$auth.signUp(this.mail, this.password, (err, resp) => {
+          this.showNotification(err);
+          if (!err) setTimeout(() => this.$router.push("login"), 1000);
+        });
     }
   }
 };
